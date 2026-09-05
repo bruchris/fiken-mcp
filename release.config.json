@@ -1,0 +1,6 @@
+{
+  "repository": "bruchris/fiken-mcp",
+  "vendor": "fiken",
+  "appSourceVisibility": "private",
+  "publicationScope": "vendor-mcp"
+}

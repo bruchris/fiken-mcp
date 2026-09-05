@@ -1,0 +1,16 @@
+services:
+  fiken:
+    build:
+      context: .
+      dockerfile: deploy/fiken.Dockerfile
+    ports:
+      - "127.0.0.1:3001:3001"
+    environment:
+      HOST: "0.0.0.0"
+      PORT: "3001"
+      MCP_AUTH_TOKEN: ${MCP_AUTH_TOKEN:?Set MCP_AUTH_TOKEN}
+      MCP_ALLOWED_ORIGINS: ${MCP_ALLOWED_ORIGINS:-}
+      FIKEN_API_TOKEN: ${FIKEN_API_TOKEN:-}
+    restart: unless-stopped
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: [ALL]
